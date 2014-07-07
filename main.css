@@ -1,5 +1,6 @@
 body{
-	background: url('londanBlur.png') no-repeat fixed center;
+	background: url('londanBlur.png') no-repeat;
+	background-size: 100%;
 }
 
 h1 {
