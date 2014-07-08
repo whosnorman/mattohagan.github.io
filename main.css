@@ -4,9 +4,9 @@ h1 {
 
 h4 {
 	font-family: 'Lato', sans-serif;
-	font-weight: 700;
+	font-weight: 400;
 	color: #fff;
-	font-size: 60px;
+	font-size: 70px;
 }
 
 h5 {
@@ -15,6 +15,10 @@ h5 {
 	color: #fff;
 	font-size: 70px;
 }
+
+h5 a:visited { color: #fff; text-decoration: none;}
+h5 a:link { color: #fff; text-decoration: none;}
+h5 a:hover { color: #fff; font-weight: 400; text-decoration: none;}
 
 html { 
   background: url('londanBlur.png') no-repeat center center fixed; 
