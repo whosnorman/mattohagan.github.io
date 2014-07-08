@@ -8,27 +8,40 @@
 <body>
 
 <!-- attempting faux absolute positioning -->
-<div style="margin-top: 40px; float:left; width 100%; display: block; position: relative;">
-   <div style="position: relative; left: 100%; float: left; margin-left: -13%;">
+<div style="overflow: hidden; border: 1px solid #fff; border-radius: 2px;">
+<div class="line">
+   <div id="header">
       <div id="first"> currently residing at: </div>
       <div id="second"> Florida State University</div>
-      <div style="clear: both;"></div>
+      <!-- <div style="clear: both;"></div> -->
    </div>
 </div>
 
-   <div style="margin-top: 27%; margin-left: 82%; padding-left: 10px; margin-bottom: 30px; position: fixed;">
+   <!-- 
+   <div style="margin-top: 27%; margin-left: 82%; padding-left: 10px; margin-bottom: 30px; position: fixed;"> -->
 
-   <ul class="nav">
-      <li><a href="">resume</a></li>
-      <li><a href="">about</a></li>
-      <li><a href="http://hackfsu.com">hackfsu</a></li>
-      <li><a href="https://twitter.com/MC_hagan">twitter</a></li>
-   </ul>
+   <div class="line">
+      <div style="height: 44%; width 100%; border: 0px solid #fff;">
+      </div>
    </div>
 
-   <div style="margin-top: 37.5%; margin-left: 55px; margin-bottom: 15px; position: fixed;">
+   <div class="line">
+   <div id="fauxNav">
+	   <ul class="nav">
+	      <li><a href="">about</a></li>
+	      <li><a href="">resume</a></li>
+	      <li><a href="http://hackfsu.com">hackfsu</a></li>
+	      <li><a href="https://twitter.com/MC_hagan">twitter</a></li>
+	   </ul>
+   </div>
+
+   <!-- 
+   <div style="margin-top: 37.5%; margin-left: 55px; margin-bottom: 15px; position: fixed;"> -->
+   <div id="fauxName">
       <h4>matt o'hagan</h1>
    </div>
+   </div>
+</div>
 </body>
 
 </html>
