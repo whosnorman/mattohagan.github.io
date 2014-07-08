@@ -18,7 +18,32 @@ h5 {
 
 h5 a:visited { color: #fff; text-decoration: none;}
 h5 a:link { color: #fff; text-decoration: none;}
-h5 a:hover { color: #fff; font-weight: 700; text-decoration: none;}
+h5 a:hover { color: #fff; text-decoration: none; font-weight: 400;}
+h5 a:active { color: #fff; text-decoration: none; font-weight: 400;}
+
+ul.nav {
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: #fff;
+	font-size: 70px;
+	padding: 20px;
+	list-style: none;
+	
+}
+.nav li a {
+	padding-left: 20px;
+	padding-bottom: 20px;
+	height: 50px;
+	line-height: 50px;
+	display:block;
+	position:relative;
+	text-decoration: none;
+	color: #fff;
+}
+.nav li a:hover{
+	border-left: 3px solid #fff;
+	padding-left: 17px;
+}
 
 html { 
   background: url('londanBlur.png') no-repeat center center fixed; 
