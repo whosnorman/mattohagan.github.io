@@ -16,11 +16,49 @@ h5 {
 	font-size: 70px;
 }
 
+/* failed nav bar attempt */
 h5 a:visited { color: #fff; text-decoration: none;}
 h5 a:link { color: #fff; text-decoration: none;}
 h5 a:hover { color: #fff; text-decoration: none; font-weight: 400;}
 h5 a:active { color: #fff; text-decoration: none; font-weight: 400;}
 
+#first {
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: #fff;
+	font-size: 45px;
+	float: left;
+	margin-left: 50px;
+	padding: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#second {
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	color: #fff;
+	font-size: 50px;
+	float: left;
+	margin-left: 10px;
+	padding: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	border: 2px solid #ff;
+	background: rgba(255, 255, 255, 0.1);
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	border: 3px solid #fff;
+
+}
+
+
+
+
+/* nav bar */
 ul.nav {
 	font-family: 'Lato', sans-serif;
 	font-weight: 100;
@@ -45,6 +83,7 @@ ul.nav {
 	padding-left: 17px;
 }
 
+/* background */
 html { 
   background: url('londanBlur.png') no-repeat center center fixed; 
   -webkit-background-size: cover;
