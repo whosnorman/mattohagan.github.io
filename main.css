@@ -1,8 +1,25 @@
-body{
-	background: url('londanBlur.png') no-repeat;
-	background-size: 100%;
-}
-
 h1 {
 	color: #fff;
+}
+
+h4 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	color: #fff;
+	font-size: 35px;
+}
+
+h5 {
+	font-family: 'Lato', sans-serf;
+	font-weight: 100;
+	color: #fff;
+	font-size: 25px;
+}
+
+html { 
+  background: url('londanBlur.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
