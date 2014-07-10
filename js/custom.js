@@ -25,7 +25,7 @@
 	function init() {
 		// set timers [student timer id...]
 		//sid = setInterval(timer('s'), 1000);
-		setTimeout(function(){ scroll('hackathons'); }, 1000);
+		setTimeout(function(){ scroll('hackathons'); }, 2000);
 		setTimeout(function(){ scroll('student'); }, 3000);
 		setTimeout(function(){ scroll('dabble'); }, 1500);
 		//did = setInterval(timer('d'), 1000);
@@ -54,7 +54,7 @@
 				classie.removeClass( currentItem, 'move-out');
 				classie.removeClass( nextItem, 'show-next');
 				
-				setTimeout(function(){ scroll('hackathons'); }, 1000);
+				setTimeout(function(){ scroll('hackathons'); }, 2000);
 
 				//clearInterval(hid);
 				//hid = setInterval(timer, 3000);
