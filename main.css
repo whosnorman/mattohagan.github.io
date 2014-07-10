@@ -257,10 +257,10 @@ html {
 
 @-webkit-keyframes moveOut {
 	from { -webkit-transform: translateY(0); }
-	to { -webkit-transform: translateY(-100%); }
+	to { -webkit-transform: translateY(-110%); }
 }
 
 @keyframes moveOut {
 	from { -webkit-transform: translateY(0); transform: translateY(0); }
-	to { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+	to { -webkit-transform: translateY(-110%); transform: translateY(-110%); }
 }
