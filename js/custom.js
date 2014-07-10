@@ -23,14 +23,10 @@
 	hid, tid, sid;
 
 	function init() {
-		// set timers [student timer id...]
-		//sid = setInterval(timer('s'), 1000);
+		// set timeouts
 		setTimeout(function(){ scroll('hackathons'); }, 2000);
 		setTimeout(function(){ scroll('student'); }, 3000);
 		setTimeout(function(){ scroll('dabble'); }, 1500);
-		//did = setInterval(timer('d'), 1000);
-		//console.log(items);
-
 	}
 
 	function scroll(line) {
