@@ -97,7 +97,7 @@ h5 a:active { color: #fff; text-decoration: none; font-weight: 400;}
 	float: left; 
 	bottom: 100%; 
 	left: 100%; 
-	margin-left: -17%; 
+	margin-left: -20%; 
 	overflow: hidden;
 }
 
@@ -156,15 +156,10 @@ html {
 }
 
 
-.cont {
-
-	height: 60px;
-	position: relative;
-}
 
 
 
-/* transition stuff */
+/* transition about page */
 
 .container {
 	max-width: 100%;
