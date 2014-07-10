@@ -23,7 +23,7 @@ h5 a:link { color: #fff; text-decoration: none;}
 h5 a:hover { color: #fff; text-decoration: none; font-weight: 400;}
 h5 a:active { color: #fff; text-decoration: none; font-weight: 400;}
 
-#first {
+.first {
 	font-family: 'Lato', sans-serif;
 	font-weight: 100;
 	color: #fff;
@@ -35,7 +35,7 @@ h5 a:active { color: #fff; text-decoration: none; font-weight: 400;}
 	overflow: hidden;
 }
 
-#second {
+.second {
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
 	color: #fff;
@@ -155,3 +155,112 @@ html {
   background-size: cover;
 }
 
+
+.cont {
+
+	height: 60px;
+	position: relative;
+}
+
+
+
+/* transition stuff */
+
+.container {
+	max-width: 100%;
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	height: 60px;
+}
+
+.container > ul {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	list-style: none;
+
+}
+
+.container li {
+	position: relative;
+	pointer-events: none;
+	opacity: 0;
+	z-index: 999;
+
+}
+
+.container .current {
+	opacity: 1;
+	pointer-events: auto;
+	z-index: 1000;
+}
+
+.itemwrap {
+	position: relative;
+}
+
+.itemwrap li {
+
+	position: relative;
+	visibility: hidden;
+	height: 0;
+
+}
+
+.itemwrap li.current,
+.no-js .itemwrap li {
+	visibility: visible;
+	height: 0;
+	-webkit-transition: none;
+	transition: none;
+}
+
+.itemwrap li > span {
+	display: block;
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.itemwrap li.current > span,
+.no-js .itemwrap li > span {
+	-webkit-transition: none;
+	transition: none;
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+}
+
+.show-next > span {
+	opacity: 1;
+	z-index: 1000;
+	-webkit-animation: moveUpFromDown 1s both;
+	animation: moveUpFromDown 1s both;
+}
+
+.move-out > span {
+	
+	-webkit-animation: moveOut 0.7s both;
+	animation: moveOut 0.7s both;
+}
+
+@-webkit-keyframes moveUpFromDown {
+	from { -webkit-transform: translateY(100%); }
+	to { -webkit-transform: translateY(0); }
+}
+
+@keyframes moveUpFromDown {
+	from { -webkit-transform: translateY(100%); transform: translateY(100%); }
+	to { -webkit-transform: translateY(0); transform: translateY(0); }
+}
+
+@-webkit-keyframes moveOut {
+	from { -webkit-transform: translateY(0); }
+	to { -webkit-transform: translateY(-100%); }
+}
+
+@keyframes moveOut {
+	from { -webkit-transform: translateY(0); transform: translateY(0); }
+	to { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+}

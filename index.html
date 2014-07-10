@@ -2,7 +2,8 @@
 <head>
    <link rel="stylesheet" type="text/css" href="main.css">
    <link href='http://fonts.googleapis.com/css?family=Lato:100,400,700,900' rel='stylesheet' type='text/css'>
-
+   <link rel="stylesheet" type="text/css" href="main.css" />
+   <script src="js/modernizr.custom.js"></script>
    <title>Matt O'Hagan</title>
 </head>
 <body>
@@ -10,45 +11,53 @@
 <!-- attempting faux absolute positioning -->
 <div style="overflow: hidden; border: 0px solid #fff; border-radius: 2px;">
 
-<div class="line">
-   <div class="header">
-      <div id="first"> born and raised in </div>
-      <div id="second"> Michigan</div>
-      <!-- <div style="clear: both;"></div> -->
+   <div class="line">
+      <div class="header">
+         <div class="first"> born and raised in </div>
+         <div class="second"> Michigan</div>
+         <!-- <div style="clear: both;"></div> -->
+      </div>
    </div>
-</div>
 
-<div class="line">
-   <div class="header l1">
-      <div id="first"> full-time student pursuing </div>
-      <div id="second"> Florida State University</div>
-      <!-- <div style="clear: both;"></div> -->
+   <div class="line">
+      <div class="header l1">
+         <div class="first"> full-time student pursuing </div>
+         <div class="second"> Florida State University</div>
+         <!-- <div style="clear: both;"></div> -->
+      </div>
    </div>
-</div>
 
-<div class="line">
-   <div class="header l2">
-      <div id="first"> avid and passionate </div>
-      <div id="second"> Hacker</div>
-      <!-- <div style="clear: both;"></div> -->
+   <div class="line">
+      <div class="header l2">
+         <div class="first"> avid and passionate </div>
+         <div class="second"> Hacker</div>
+         <!-- <div style="clear: both;"></div> -->
+      </div>
    </div>
-</div>
 
-<div class="line">
-   <div class="header l3">
-      <div id="first"> hackathons attended </div>
-      <div id="second"> HackNC </div>
-      <!-- <div style="clear: both;"></div> -->
+   <div class="line">
+      <div class="header l3">
+         <div class="first"> hackathons attended </div>
+         <div class="second cont"> 
+         <div id="container" class="container">
+            <ul class="itemwrap">
+               <li class="current"><span>HackNC</span></li>
+               <li><span>VTHacks</span></li>
+               <li><span>HackFSU</span></li>
+            </ul>
+         </div>
+         </div>
+         <!-- <div style="clear: both;"></div> -->
+      </div>
    </div>
-</div>
 
-<div class="line">
-   <div class="header l4">
-      <div id="first"> dabble in </div>
-      <div id="second"> HTML </div>
-      <!-- <div style="clear: both;"></div> -->
+   <div class="line">
+      <div class="header l4">
+         <div class="first"> dabble in </div>
+         <div class="second"> HTML </div>
+         <!-- <div style="clear: both;"></div> -->
+      </div>
    </div>
-</div>
    <!-- 
    <div style="margin-top: 27%; margin-left: 82%; padding-left: 10px; margin-bottom: 30px; position: fixed;"> -->
 
@@ -76,6 +85,9 @@
    </div>
    </div>
 </div>
+
+<script src="js/classie.js"></script>
+<script src="js/custom.js"></script>
 </body>
 
 </html>
