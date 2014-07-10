@@ -8,88 +8,152 @@
 	},
 
 	animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
-	container = document.getElementById( 'container' ),
-	items = container.querySelector( 'ul.itemwrap' ).children,
-	current = 0,
-	itemsCount = items.length,
-	isAnimating = false;
+	stuCont = document.getElementById( 'stuCont' ),
+	hackCont = document.getElementById( 'hackCont' ),
+	dabbleCont = document.getElementById( 'dabbleCont' ),
+	stuItems = stuCont.querySelector( 'ul.itemwrap' ).children,
+	hackItems = hackCont.querySelector( 'ul.itemwrap' ).children,
+	dabbleItems = dabbleCont.querySelector( 'ul.itemwrap' ).children,
+	stuCurrent = 0,
+	hackCurrent = 0,
+	dabbleCurrent = 0,
+	stuCount = stuItems.length,
+	hackCount = hackItems.length,
+	dabbleCount = dabbleItems.length,
+	hid, tid, sid;
 
 	function init() {
-		// set timer
-		tid = setInterval(timer, 1000);
-		console.log(items);
+		// set timers [student timer id...]
+		//sid = setInterval(timer('s'), 1000);
+		setTimeout(function(){ scroll('hackathons'); }, 1000);
+		setTimeout(function(){ scroll('student'); }, 3000);
+		setTimeout(function(){ scroll('dabble'); }, 1500);
+		//did = setInterval(timer('d'), 1000);
+		//console.log(items);
 
 	}
 
-	function timer(){
-		clearInterval(tid);
-		navigate();
-		console.log(current);
-		//tid = setInterval(timer, 2000);
-	}
+	function scroll(line) {
+		if (line === 'hackathons') {
+			var currentItem = hackItems[ hackCurrent ];
+			//console.log(currentItem);
+			// always going to next item
+			hackCurrent = hackCurrent < hackCount - 1 ? hackCurrent + 1 : 0;
+			//++current;
 
-	function navigate() {
-		var cntAnims = 0;
+			var nextItem = hackItems[ hackCurrent ];
+			classie.addClass(currentItem, 'move-out');
+			classie.addClass(nextItem, 'show-next');
+			classie.addClass(nextItem, 'current');
 
-		var currentItem = items[ current ];
-		console.log(currentItem);
-		// always going to next item
-		current = current < itemsCount - 1 ? current + 1 : 0;
-		//++current;
+			var onEndAnimationNextItem = function() {
+				//clearInterval(stid);
+				this.removeEventListener( animEndEventName, onEndAnimationNextItem );
+				//console.log('end animation2');
+				classie.removeClass( currentItem, 'current');
+				classie.removeClass( currentItem, 'move-out');
+				classie.removeClass( nextItem, 'show-next');
+				
+				setTimeout(function(){ scroll('hackathons'); }, 1000);
 
-		var nextItem = items[ current ];
-		classie.addClass(currentItem, 'move-out');
-		classie.addClass(nextItem, 'show-next');
-		classie.addClass(nextItem, 'current');
-
-		//classie.removeClass( currentItem, 'current');
-		//classie.removeClass( currentItem, 'move-out');
-		//classie.addClass( nextItem, 'current');
-
-/*
-		var onEndAnimationCurrentItem = function() {
-			//clearInterval(stid);
-			this.removeEventListener( animEndEventName, onEndAnimationCurrentItem );
-			console.log('end animation1');
-			classie.removeClass( currentItem, 'current' );
-			classie.removeClass( currentItem, 'move-out');
-			//classie.addClass( nextItem, 'show-next');
-			//classie.addClass( nextItem, 'current');
-			nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
-			//tid = setInterval(timer, 2000);
-			/*++cntAnims;
-			if( cntAnims === 2) {
-				isAnimating = false;
+				//clearInterval(hid);
+				//hid = setInterval(timer, 3000);
+				/*++cntAnims;
+				if( cntAnims === 2) {
+					isAnimating = false;
+				}*/
 			}
-		} */
+		
+			if (support.animations) {
+				console.log('support');
+				//stid = setInterval(onEndAnimationItem, 2000);
+				nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
+			}
+			else {
+				console.log('no support');
+				onEndAnimationItem();
+			}
 
-		var onEndAnimationNextItem = function() {
-			//clearInterval(stid);
-			this.removeEventListener( animEndEventName, onEndAnimationNextItem );
-			console.log('end animation2');
-			classie.removeClass( currentItem, 'current');
-			classie.removeClass( currentItem, 'move-out');
-			classie.removeClass( nextItem, 'show-next');
-			
-			tid = setInterval(timer, 2000);
-			/*++cntAnims;
-			if( cntAnims === 2) {
-				isAnimating = false;
-			}*/
 		}
-	
-		if (support.animations) {
-			console.log('support');
-			//stid = setInterval(onEndAnimationItem, 2000);
-			nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
+		else if (line === 'student') {
+			var currentItem = stuItems[ stuCurrent ];
+			//console.log(currentItem);
+			// always going to next item
+			stuCurrent = stuCurrent < stuCount - 1 ? stuCurrent + 1 : 0;
+			//++current;
+
+			var nextItem = stuItems[ stuCurrent ];
+			classie.addClass(currentItem, 'move-out');
+			classie.addClass(nextItem, 'show-next');
+			classie.addClass(nextItem, 'current');
+
+			var onEndAnimationNextItem = function() {
+				//clearInterval(stid);
+				this.removeEventListener( animEndEventName, onEndAnimationNextItem );
+				console.log('end animation2');
+				classie.removeClass( currentItem, 'current');
+				classie.removeClass( currentItem, 'move-out');
+				classie.removeClass( nextItem, 'show-next');
+				
+				setTimeout(function(){ scroll('student'); }, 3500);
+				//sid = setInterval(timer('s'), 2000);
+				/*++cntAnims;
+				if( cntAnims === 2) {
+					isAnimating = false;
+				}*/
+			}
+		
+			if (support.animations) {
+				console.log('support');
+				//stid = setInterval(onEndAnimationItem, 2000);
+				nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
+			}
+			else {
+				console.log('no support');
+				onEndAnimationItem();
+			}
+
 		}
-		else {
-			console.log('no support');
-			onEndAnimationItem();
+		else if (line === 'dabble') {
+			var currentItem = dabbleItems[ dabbleCurrent ];
+			//console.log(currentItem);
+			// always going to next item
+			dabbleCurrent = dabbleCurrent < dabbleCount - 1 ? dabbleCurrent + 1 : 0;
+			//++current;
+
+			var nextItem = dabbleItems[ dabbleCurrent ];
+			classie.addClass(currentItem, 'move-out');
+			classie.addClass(nextItem, 'show-next');
+			classie.addClass(nextItem, 'current');
+
+			var onEndAnimationNextItem = function() {
+				//clearInterval(stid);
+				this.removeEventListener( animEndEventName, onEndAnimationNextItem );
+				//console.log('end animation2');
+				classie.removeClass( currentItem, 'current');
+				classie.removeClass( currentItem, 'move-out');
+				classie.removeClass( nextItem, 'show-next');
+				
+				setTimeout(function(){ scroll('dabble'); }, 1500);
+				//sid = setInterval(timer('s'), 2000);
+				/*++cntAnims;
+				if( cntAnims === 2) {
+					isAnimating = false;
+				}*/
+			}
+		
+			if (support.animations) {
+				console.log('support');
+				//stid = setInterval(onEndAnimationItem, 2000);
+				nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
+			}
+			else {
+				console.log('no support');
+				onEndAnimationItem();
+			}
+
 		}
 
-		//classie.addClass(currentItem, 'show-next');
-		//classie.addClass(nextItem, 'show-next');
 
 
 	}
