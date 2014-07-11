@@ -20,13 +20,60 @@
 	stuCount = stuItems.length,
 	hackCount = hackItems.length,
 	dabbleCount = dabbleItems.length,
-	hid, tid, sid;
+	hid, tid, sid,
+	hackDelay = 2000,
+	stuDelay = 3500,
+	dabbleDelay = 1500,
+	content = document.getElementById( 'content' ),
+	contentItems = content.querySelector( 'ul.contentwrap').children,
+	contentCount = contentItems.length,
+	contentCurrent = 0,
+	navBar = document.getElementById( 'fauxNav' ),
+	navBtns = navBar.querySelector( 'ul.nav' ),
+	aboutBtn = navBtns.querySelector( '.about' ),
+	resumeBtn = navBtns.querySelector( '.resume' );
+
 
 	function init() {
 		// set timeouts
-		setTimeout(function(){ scroll('hackathons'); }, 2000);
-		setTimeout(function(){ scroll('student'); }, 3000);
-		setTimeout(function(){ scroll('dabble'); }, 1500);
+		hid = setTimeout(hackTimer, hackDelay);
+		//sid = setTimeout(function(){ scroll('student'); }, 3000);
+		sid = setTimeout(stuTimer, stuDelay);
+		did = setTimeout(dabbleTimer, dabbleDelay);
+
+		aboutBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'about' ); } );
+		resumeBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'resume' ); } );
+		
+	}
+
+	function hackTimer() {
+		console.log('hack check');
+		if (contentCurrent === 0) {
+			scroll('hackathons');
+		}
+		else {
+			clearTimeout(hid);
+		}
+	}
+
+	function stuTimer() {
+		console.log('stu check');
+		if (contentCurrent === 0) {
+			scroll('student');
+		}
+		else {
+			clearTimeout(sid);
+		}
+	}
+
+	function dabbleTimer() {
+		console.log('dabble check');
+		if (contentCurrent === 0) {
+			scroll('dabble');
+		}
+		else {
+			clearTimeout(did);
+		}
 	}
 
 	function scroll(line) {
@@ -50,7 +97,8 @@
 				classie.removeClass( currentItem, 'move-out');
 				classie.removeClass( nextItem, 'show-next');
 				
-				setTimeout(function(){ scroll('hackathons'); }, 2000);
+				console.log('hack set');
+				hid = setTimeout(hackTimer, hackDelay);
 
 				//clearInterval(hid);
 				//hid = setInterval(timer, 3000);
@@ -61,7 +109,7 @@
 			}
 		
 			if (support.animations) {
-				console.log('support');
+				console.log('hid ' + hid);
 				//stid = setInterval(onEndAnimationItem, 2000);
 				nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
 			}
@@ -86,12 +134,12 @@
 			var onEndAnimationNextItem = function() {
 				//clearInterval(stid);
 				this.removeEventListener( animEndEventName, onEndAnimationNextItem );
-				console.log('end animation2');
+				//console.log('end animation2');
 				classie.removeClass( currentItem, 'current');
 				classie.removeClass( currentItem, 'move-out');
 				classie.removeClass( nextItem, 'show-next');
 				
-				setTimeout(function(){ scroll('student'); }, 3500);
+				sid = setTimeout(stuTimer, stuDelay);
 				//sid = setInterval(timer('s'), 2000);
 				/*++cntAnims;
 				if( cntAnims === 2) {
@@ -100,7 +148,7 @@
 			}
 		
 			if (support.animations) {
-				console.log('support');
+				console.log('sid ' + sid);
 				//stid = setInterval(onEndAnimationItem, 2000);
 				nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
 			}
@@ -130,7 +178,7 @@
 				classie.removeClass( currentItem, 'move-out');
 				classie.removeClass( nextItem, 'show-next');
 				
-				setTimeout(function(){ scroll('dabble'); }, 1500);
+				did = setTimeout(dabbleTimer, dabbleDelay);
 				//sid = setInterval(timer('s'), 2000);
 				/*++cntAnims;
 				if( cntAnims === 2) {
@@ -139,7 +187,7 @@
 			}
 		
 			if (support.animations) {
-				console.log('support');
+				console.log('did ' + did);
 				//stid = setInterval(onEndAnimationItem, 2000);
 				nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
 			}
@@ -149,9 +197,81 @@
 			}
 
 		}
+	}
+
+	function slide(cont) {
+		
+		if(cont === 'resume') {
+			if (contentCurrent != 1) {
+				//clearAllTimeouts();
+
+				var currentView = contentItems[ contentCurrent ];
+				contentCurrent = 1;
+				var nextView = contentItems[ contentCurrent ];
+				classie.addClass(currentView, 'slide-out');
+				classie.addClass(nextView, 'slide-next');
+				classie.addClass(nextView, 'current');
+
+				var onEndAnimationNextView = function() {
+					this.removeEventListener( animEndEventName, onEndAnimationNextView );
+
+					classie.removeClass(currentView, 'slide-out');
+					classie.removeClass(currentView, 'current');
+					classie.removeClass(nextView, 'slide-next');
+				}
+
+				if (support.animations) {
+					nextView.addEventListener( animEndEventName, onEndAnimationNextView );
+				}
+				else {
+					console.log('no support for animations/transitions');
+					onEndAnimationNextView();
+				}
+			}
+		}
+		else if (cont === 'about') {
+			if (contentCurrent != 0) {
+				//clearAllTimeouts();
+
+				var currentView = contentItems[ contentCurrent ];
+				contentCurrent = 0;
+				var nextView = contentItems[ contentCurrent ];
+				classie.addClass(currentView, 'slide-out');
+				classie.addClass(nextView, 'slide-next');
+				classie.addClass(nextView, 'current');
+
+				var onEndAnimationNextView = function() {
+					this.removeEventListener( animEndEventName, onEndAnimationNextView );
+
+					classie.removeClass(currentView, 'slide-out');
+					classie.removeClass(currentView, 'current');
+					classie.removeClass(nextView, 'slide-next');
+
+					hid = setTimeout(hackTimer, hackDelay);
+					sid = setTimeout(stuTimer, stuDelay);
+					did = setTimeout(dabbleTimer, dabbleDelay);
 
 
+				}
 
+				if (support.animations) {
+					nextView.addEventListener( animEndEventName, onEndAnimationNextView );
+				}
+				else {
+					console.log('no support for animations/transitions');
+					onEndAnimationNextView();
+				}
+			}
+			
+		}
+			
+	}
+
+	function clearAllTimeouts() {
+		clearTimeout(hid);
+		clearTimeout(sid);
+		clearTimeout(did);
+		console.log('hid: ' + hid + ' sid: ' + sid + ' did: ' + did);
 	}
 
 	init();
