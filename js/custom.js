@@ -31,7 +31,8 @@
 	navBar = document.getElementById( 'fauxNav' ),
 	navBtns = navBar.querySelector( 'ul.nav' ),
 	aboutBtn = navBtns.querySelector( '.about' ),
-	resumeBtn = navBtns.querySelector( '.resume' );
+	resumeBtn = navBtns.querySelector( '.resume' ),
+	portBtn = navBtns.querySelector( '.port' );
 
 
 	function init() {
@@ -43,6 +44,7 @@
 
 		aboutBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'about' ); } );
 		resumeBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'resume' ); } );
+		portBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'port' ); } );
 		
 	}
 
@@ -205,6 +207,10 @@
 			if (contentCurrent != 1) {
 				//clearAllTimeouts();
 
+				classie.addClass(resumeBtn, 'current');
+				classie.removeClass(aboutBtn, 'current');
+				classie.removeClass(portBtn, 'current');
+
 				var currentView = contentItems[ contentCurrent ];
 				contentCurrent = 1;
 				var nextView = contentItems[ contentCurrent ];
@@ -232,6 +238,9 @@
 		else if (cont === 'about') {
 			if (contentCurrent != 0) {
 				//clearAllTimeouts();
+				classie.addClass(aboutBtn, 'current');
+				classie.removeClass(resumeBtn, 'current');
+				classie.removeClass(portBtn, 'current');
 
 				var currentView = contentItems[ contentCurrent ];
 				contentCurrent = 0;
@@ -251,6 +260,39 @@
 					sid = setTimeout(stuTimer, stuDelay);
 					did = setTimeout(dabbleTimer, dabbleDelay);
 
+
+				}
+
+				if (support.animations) {
+					nextView.addEventListener( animEndEventName, onEndAnimationNextView );
+				}
+				else {
+					console.log('no support for animations/transitions');
+					onEndAnimationNextView();
+				}
+			}
+			
+		}
+		else if (cont === 'port') {
+			if (contentCurrent != 2) {
+				//clearAllTimeouts();
+				classie.addClass(portBtn, 'current');
+				classie.removeClass(aboutBtn, 'current');
+				classie.removeClass(resumeBtn, 'current');
+
+				var currentView = contentItems[ contentCurrent ];
+				contentCurrent = 2;
+				var nextView = contentItems[ contentCurrent ];
+				classie.addClass(currentView, 'slide-out');
+				classie.addClass(nextView, 'slide-next');
+				classie.addClass(nextView, 'current');
+
+				var onEndAnimationNextView = function() {
+					this.removeEventListener( animEndEventName, onEndAnimationNextView );
+
+					classie.removeClass(currentView, 'slide-out');
+					classie.removeClass(currentView, 'current');
+					classie.removeClass(nextView, 'slide-next');
 
 				}
 

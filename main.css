@@ -142,8 +142,13 @@ ul.nav {
 	color: #fff;
 }
 .nav li a:hover{
-	border-left: 3px solid #fff;
-	padding-left: 17px;
+	border-left: 5px solid #fff;
+	padding-left: 15px;
+}
+
+.nav .current {
+	border-left: 5px solid #fff;
+	padding-left: 15px;
 }
 
 /* background */
@@ -270,7 +275,7 @@ html {
 	position: relative;
 	margin: 0 auto;
 	padding: 0;
-	heigh: 100%;
+	overflow: hidden;
 	
 }
 
