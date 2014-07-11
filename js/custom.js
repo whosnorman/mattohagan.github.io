@@ -50,31 +50,25 @@
 
 	function hackTimer() {
 		console.log('hack check');
+		clearTimeout(hid);
 		if (contentCurrent === 0) {
 			scroll('hackathons');
-		}
-		else {
-			clearTimeout(hid);
 		}
 	}
 
 	function stuTimer() {
 		console.log('stu check');
+		clearTimeout(sid);
 		if (contentCurrent === 0) {
 			scroll('student');
-		}
-		else {
-			clearTimeout(sid);
 		}
 	}
 
 	function dabbleTimer() {
 		console.log('dabble check');
+		clearTimeout(did);
 		if (contentCurrent === 0) {
 			scroll('dabble');
-		}
-		else {
-			clearTimeout(did);
 		}
 	}
 
