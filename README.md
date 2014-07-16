@@ -3,6 +3,8 @@ mattohagan.github.io
 
 personal portfolio and resume site
 
+[link for the lazy](http://mattohagan.github.io)
+
 ### to add
 - resume
 - portfolio page
