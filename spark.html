@@ -1,14 +1,73 @@
 <html>
 <head>
-   <link rel="stylesheet" type="text/css" href="main.css">
    <link href='http://fonts.googleapis.com/css?family=Lato:100,400,700,900' rel='stylesheet' type='text/css'>
-   <link rel="stylesheet" type="text/css" href="main.css" />
-   <title>Matt O'Hagan</title>
+   <link rel="stylesheet" type="text/css" href="css/main.css" />
+   <link rel="stylesheet" type="text/css" href="css/spark.css" />
+   <title>Matt O'Hagan | Spark Core</title>
 </head>
-<body>
+<body data-ng-app>
 
-<h4> spark core testing </h4>
+<table>
+<td>
+<h4 id="alertt"> spark core testing </h4>
+
+<div class="phrase" id="settings-panel">
+  <div id="info-alert"></div>
+  <div class="input-group">
+    <span class="input-group-addon">core id:</span>
+    <input type="text" class="form" id="core-id" placeholder="Core ID" spellcheck="false">
+  </div>
+  <div class="input-group">
+    <span class="input-group-addon">api token:</span>
+    <input type="text" class="form" id="api-token" placeholder="API Token" spellcheck="false">
+  </div>  
+</div>
+</td>
+<td>
+<div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse">
+              functions
+            </a>
+          </h4>
+        </div>
+        <div id="functions" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="row" data-ng-repeat="idx in [1, 2]">
+              <div class="col-lg-5">
+                <div class="input-group">
+                  <span class="input-group-addon phrase">
+                    function name
+                  </span>
+                  <input type="text" class="form" id="method-{{idx}}">
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-5">
+                <div class="input-group">
+                  <span class="input-group-addon phrase">
+                    data
+                  </span>
+                  <input type="text" class="form" id="data-{{idx}}">
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-2">
+                <div class="input-group">
+                  <button class="btn btn-success" type="button" id="post-{{idx}}">post</button>
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->   
+              <br/><br/>           
+            </div><!-- /.row -->
+          </div>
+        </div>
+      </div>
+     </td>
 
 
+<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/spark.js"></script>
 </body>
 </html>
