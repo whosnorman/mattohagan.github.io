@@ -1,3 +1,7 @@
+html {
+	min-width: 0;
+}
+
 
 .phrase {
 	font-family: 'Lato', sans-serif;
@@ -23,6 +27,7 @@
 	border: 2px solid #FF8330;
 	outline-color: #FF8330;
 }
+
 
 .btn {
 	font-family: 'Lato', sans-serif;
