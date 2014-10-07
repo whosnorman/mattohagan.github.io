@@ -43,8 +43,8 @@
 
 		// nav bar listeners
 		aboutBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'about' ); } );
-		resumeBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'resume' ); } );
-		portBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'port' ); } );
+		//resumeBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'resume' ); } );
+		//portBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'port' ); } );
 		
 	}
 
