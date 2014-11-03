@@ -24,15 +24,15 @@
 	hackDelay = 2000,
 	stuDelay = 3500,
 	dabbleDelay = 1500,
-	content = document.getElementById( 'content' ),
-	contentItems = content.querySelector( 'ul.contentwrap').children,
-	contentCount = contentItems.length,
-	contentCurrent = 0,
-	navBar = document.getElementById( 'fauxNav' ),
-	navBtns = navBar.querySelector( 'ul.nav' ),
-	aboutBtn = navBtns.querySelector( '.about' ),
-	resumeBtn = navBtns.querySelector( '.resume' ),
-	portBtn = navBtns.querySelector( '.port' );
+	//content = document.getElementById( 'content' ),
+	//contentItems = content.querySelector( 'ul.contentwrap').children,
+	//contentCount = contentItems.length,
+	contentCurrent = 0;
+	//navBar = document.getElementById( 'fauxNav' ),
+	//navBtns = navBar.querySelector( 'ul.nav' ),
+	//aboutBtn = navBtns.querySelector( '.about' ),
+	//resumeBtn = navBtns.querySelector( '.resume' ),
+	//portBtn = navBtns.querySelector( '.port' );
 
 
 	function init() {
@@ -42,7 +42,7 @@
 		did = setTimeout(dabbleTimer, dabbleDelay);
 
 		// nav bar listeners
-		aboutBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'about' ); } );
+		//aboutBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'about' ); } );
 		//resumeBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'resume' ); } );
 		//portBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'port' ); } );
 		
@@ -50,21 +50,21 @@
 
 	/* seperate timer for each scrolling box */
 	function hackTimer() {
-		console.log('hack check');
+		//console.log('hack check');
 		clearTimeout(hid);
 		if (contentCurrent === 0) {
 			scroll('hackathons');
 		}
 	}
 	function stuTimer() {
-		console.log('stu check');
+		//console.log('stu check');
 		clearTimeout(sid);
 		if (contentCurrent === 0) {
 			scroll('student');
 		}
 	}
 	function dabbleTimer() {
-		console.log('dabble check');
+		//console.log('dabble check');
 		clearTimeout(did);
 		if (contentCurrent === 0) {
 			scroll('dabble');
