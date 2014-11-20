@@ -11,19 +11,24 @@
 	stuCont = document.getElementById( 'stuCont' ),
 	hackCont = document.getElementById( 'hackCont' ),
 	dabbleCont = document.getElementById( 'dabbleCont' ),
+	frameCont = document.getElementById( 'frameCont' ),
 	stuItems = stuCont.querySelector( 'ul.itemwrap' ).children,
 	hackItems = hackCont.querySelector( 'ul.itemwrap' ).children,
 	dabbleItems = dabbleCont.querySelector( 'ul.itemwrap' ).children,
+	frameItems = frameCont.querySelector( 'ul.itemwrap' ).children,
 	stuCurrent = 0,
 	hackCurrent = 0,
 	dabbleCurrent = 0,
+	frameCurrent = 0,
 	stuCount = stuItems.length,
 	hackCount = hackItems.length,
 	dabbleCount = dabbleItems.length,
-	hid, tid, sid,
-	hackDelay = 2000,
+	frameCount = frameItems.length,
+	hid, tid, sid, fid,
+	hackDelay = 2000, 
 	stuDelay = 3500,
 	dabbleDelay = 1500,
+	frameDelay = 1750,
 	//content = document.getElementById( 'content' ),
 	//contentItems = content.querySelector( 'ul.contentwrap').children,
 	//contentCount = contentItems.length,
@@ -40,6 +45,7 @@
 		hid = setTimeout(hackTimer, hackDelay);
 		sid = setTimeout(stuTimer, stuDelay);
 		did = setTimeout(dabbleTimer, dabbleDelay);
+		fid = setTimeout(frameTimer, frameDelay);
 
 		// nav bar listeners
 		//aboutBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'about' ); } );
@@ -68,6 +74,13 @@
 		clearTimeout(did);
 		if (contentCurrent === 0) {
 			scroll('dabble');
+		}
+	}
+	function frameTimer() {
+		//console.log('dabble check');
+		clearTimeout(fid);
+		if (contentCurrent === 0) {
+			scroll('frame');
 		}
 	}
 
@@ -154,6 +167,39 @@
 				classesRemove(currentItem, nextItem);
 				
 				did = setTimeout(dabbleTimer, dabbleDelay);
+
+// something with this needed for sliding content pages
+				/*++cntAnims;
+				if( cntAnims === 2) {
+					isAnimating = false;
+				}*/
+			}
+		
+			if (support.animations) {
+				nextItem.addEventListener( animEndEventName, onEndAnimationNextItem );
+			}
+			else {
+				console.log('no support for animations');
+				onEndAnimationItem();
+			}
+
+		}
+		else if (line === 'frame') {
+			var currentItem = frameItems[ frameCurrent ];
+
+			// always going to next item
+			frameCurrent = frameCurrent < frameCount - 1 ? frameCurrent + 1 : 0;
+
+			var nextItem = frameItems[ frameCurrent ];
+
+			classesAdd(currentItem, nextItem);
+
+			var onEndAnimationNextItem = function() {
+				this.removeEventListener( animEndEventName, onEndAnimationNextItem );
+				
+				classesRemove(currentItem, nextItem);
+				
+				fid = setTimeout(frameTimer, frameDelay);
 
 // something with this needed for sliding content pages
 				/*++cntAnims;

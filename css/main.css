@@ -165,6 +165,10 @@ h5 a:active { color: #fff; text-decoration: none; font-weight: 400;}
 }
 
 .line:nth-child(5){
+	margin-left: 15.2em;
+}
+
+.line:nth-child(6){
 	margin-left: 13.8em;
 }
 
