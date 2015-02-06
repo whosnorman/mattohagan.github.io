@@ -66,12 +66,13 @@ html {
 	body {
 		font-size: 3.5px;
 	}
+
 	.second {
 		max-height: 1.2em !important;
 	}
 
 	.line:nth-child(2){
-		margin-left: 2em;
+		margin-left: 2em !important;
 	}
 }
 
