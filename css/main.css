@@ -72,7 +72,7 @@ html {
 	}
 
 	.line:nth-child(2){
-		margin-left: 2em !important;
+		margin-left: -1.5em !important;
 	}
 }
 
