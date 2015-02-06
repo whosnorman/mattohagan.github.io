@@ -350,4 +350,42 @@
 	}
 
 	init();
+
+
+
 })();
+
+function hippo(){
+	//var url = 'https://deskhippo.herokuapp.com/sweep';
+	
+	/*$.ajax({
+	  type: "POST",
+	  url: url,
+	  data: null,
+	  success: function(result){
+	  	console.log(result);
+	  },
+	  error: function(xhr, textStatus, errThrown){
+	  	validateErr('post');
+	  	console.log(xhr.responseText);
+	  	console.log(textStatus);
+	  	console.log(errThrown);
+	  }
+	}); */
+
+	var baseURL = "https://api.spark.io/v1/devices/";
+
+	//var url = baseURL + core_id + '/sweepPost';
+
+	var url = baseURL + '53ff7d065075535135061587' + '/sweepPost';
+	$.ajax({
+    	type: "POST",
+	    url: url,
+		data: {access_token: 'adbfbb8f57e5fb294a922001a0fd4d15c8828ca0', args: 'test' },
+		success: function(){console.log('success');},
+		dataType: "json"
+	}).fail(function(obj) {
+			console.log('fail');
+	});
+
+}

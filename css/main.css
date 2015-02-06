@@ -53,12 +53,25 @@ html {
 	}
 }
 
-@media all and (max-width: 604px){
+@media all and (max-width: 604px) and (min-width: 405px){
 	body {
 		font-size: 5px;
 	}
 	.second {
 		max-height: 1.2em !important;
+	}
+}
+
+@media all and (max-width: 404px){
+	body {
+		font-size: 3.5px;
+	}
+	.second {
+		max-height: 1.2em !important;
+	}
+
+	.line:nth-child(2){
+		margin-left: 2em;
 	}
 }
 
