@@ -8,11 +8,11 @@
 	},
 
 	animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
-	stuCont = document.getElementById( 'stuCont' ),
+	//stuCont = document.getElementById( 'stuCont' ),
 	hackCont = document.getElementById( 'hackCont' ),
 	dabbleCont = document.getElementById( 'dabbleCont' ),
 	frameCont = document.getElementById( 'frameCont' ),
-	stuItems = stuCont.querySelector( 'ul.itemwrap' ).children,
+	//stuItems = stuCont.querySelector( 'ul.itemwrap' ).children,
 	hackItems = hackCont.querySelector( 'ul.itemwrap' ).children,
 	dabbleItems = dabbleCont.querySelector( 'ul.itemwrap' ).children,
 	frameItems = frameCont.querySelector( 'ul.itemwrap' ).children,
@@ -20,7 +20,7 @@
 	hackCurrent = 0,
 	dabbleCurrent = 0,
 	frameCurrent = 0,
-	stuCount = stuItems.length,
+	//stuCount = stuItems.length,
 	hackCount = hackItems.length,
 	dabbleCount = dabbleItems.length,
 	frameCount = frameItems.length,
@@ -29,29 +29,15 @@
 	stuDelay = 3500,
 	dabbleDelay = 1500,
 	frameDelay = 1750,
-	//content = document.getElementById( 'content' ),
-	//contentItems = content.querySelector( 'ul.contentwrap').children,
-	//contentCount = contentItems.length,
 	contentCurrent = 0;
-	//navBar = document.getElementById( 'fauxNav' ),
-	//navBtns = navBar.querySelector( 'ul.nav' ),
-	//aboutBtn = navBtns.querySelector( '.about' ),
-	//resumeBtn = navBtns.querySelector( '.resume' ),
-	//portBtn = navBtns.querySelector( '.port' );
 
 
 	function init() {
 		// set starting timeouts
 		hid = setTimeout(hackTimer, hackDelay);
-		sid = setTimeout(stuTimer, stuDelay);
+		//sid = setTimeout(stuTimer, stuDelay);
 		did = setTimeout(dabbleTimer, dabbleDelay);
 		fid = setTimeout(frameTimer, frameDelay);
-
-		// nav bar listeners
-		//aboutBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'about' ); } );
-		//resumeBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'resume' ); } );
-		//portBtn.addEventListener( 'click', function( ev ) { ev.preventDefault(); slide( 'port' ); } );
-		
 	}
 
 	/* seperate timer for each scrolling box */
@@ -88,13 +74,12 @@
 	// onEndAnimation in its own scope 
 	function scroll(line) {
 		if (line === 'hackathons') {
-			var currentItem = hackItems[ hackCurrent ];
+			var currentItem = hackItems[hackCurrent];
 
 			// always going to next item
 			hackCurrent = hackCurrent < hackCount - 1 ? hackCurrent + 1 : 0;
 			
-			var nextItem = hackItems[ hackCurrent ];
-
+			var nextItem = hackItems[hackCurrent];
 			classesAdd(currentItem, nextItem);
 
 			var onEndAnimationNextItem = function() {
@@ -232,6 +217,7 @@
 	}
 
 
+	/*
 	function slide(cont) {
 		
 		if(cont === 'resume') {
@@ -339,7 +325,7 @@
 			
 		}
 			
-	}
+	} */
 
 	// currently unused 
 	function clearAllTimeouts() {
