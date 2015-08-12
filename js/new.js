@@ -4,26 +4,36 @@ $(document).ready(function(){
 	setTimeout(function(){
 		$('canvas').css({opacity: 1});
 		$('.centered').css({opacity: 1});
+		$('.arrow').css({opacity: 1});
 	}, 2000);
+
+	$('.arrow span').on('click', function(){
+		$('html, body').animate({
+        scrollTop: $("#port").offset().top - 80
+    }, 1500);
+	});
 
 	$(document).scroll(function(){
         var top = $(this).scrollTop();
-        console.log(top);
-        if(top >= 100){
+        if(top >= 200)
         	hideLanding();
-        } else 
+        else 
         	showLanding();
     });
 
     function hideLanding(){
         $('canvas').css({opacity: 0});
+        $('.arrow').css({opacity: 0});
         $('.nav').addClass('showNav');
-        $('.top').addClass('hideTop');
+        $('.leftSide').removeClass('leftShow');
+        $('.dontshow').removeClass('show');
     }
 
     function showLanding(){
     	$('canvas').css({opacity: 1});
+		$('.arrow').css({opacity: 1});
         $('.nav').removeClass('showNav');
-        $('.top').removeClass('hideTop');
+        $('.leftSide').addClass('leftShow');
+		$('.dontshow').addClass('show');
     }
 });

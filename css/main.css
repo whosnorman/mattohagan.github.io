@@ -58,6 +58,7 @@ body {
 	color: #1d1d1d;
 	font-family: 'Open Sans', sans-serif;
     font-weight: 400;
+
 }
 
 canvas {
@@ -67,6 +68,7 @@ canvas {
 	max-width: 100%;
 	max-height: 100%;
 	opacity: 0;
+	z-index: 0;
 
 	transition: all 2000ms ease;
 	-webkit-transition: all 2000ms ease;
@@ -78,7 +80,7 @@ canvas {
 }
 
 .centered {
-	text-align: center;
+	text-align: left;
 	font-size: 2.5em;
 	left: 25%;
 	right: 25%;
@@ -91,19 +93,9 @@ canvas {
 	-moz-transition: all 250ms ease-out;
 }
 
-.centered .header {
-	text-align: center;
-	display: inline-block;
-}
-
-.centered .header::after {
-	content: '';
-	height: 1.8px;
-	opacity: 1;
-	background: #1d1d1d;
-	position: absolute;
-	transition: all 350ms ease-out;
-	transition-delay: 300ms;
+.centered .header a {
+	text-decoration: none;
+	color: #fafafa;
 }
 
 .centered hr {
@@ -116,7 +108,44 @@ canvas {
 }
 
 .landing {
-	height: 970px;
+	height: 100%;
+	background-color: #F2F2F2;
+ }
+
+.landing .arrow {
+	bottom: 100px;
+	position: absolute;
+	z-index: 4;
+	width: 100%;
+	text-align: center;
+	color: #db5461;
+	opacity: 0;
+
+	transition: all 250ms ease-out;
+	-webkit-transition: all 250ms ease-out;
+	-moz-transition: all 250ms ease-out;
+}
+
+.arrow span {
+	opacity: 0.6;
+}
+
+.arrow span:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.port {
+	height: 100%;
+	background-color: #F2F2F2;
+	z-index: 4;
+	position: relative;
+}
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.6);
 }
 
 .blurb {
@@ -130,7 +159,7 @@ canvas {
 }
 
 .blurb a {
-	color: #DB5461 !important;
+	color: #db5461 !important;
 	text-decoration: none;
 	border-bottom: 2px dashed;
 }
@@ -149,12 +178,26 @@ canvas {
 	text-align: left;
 }
 
+.portfolio .year {
+	font-size: 30px;
+	text-align: center;
+	font-weight: 400;
+	margin-bottom: 70px;
+	margin-top: 70px;
+}
+
+.portfolio .year::after {
+	content: '';
+	clear: both;
+}
+
 .proj {
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	font-size: 1em;
 	transition: all 250ms ease-out;
-	background-color: rgba(242, 242, 242, 0.3);
 	font-weight: 400;
+	padding: 0px 20px 10px 20px;
+	border: 2px solid;
 }
 
 .proj:hover {
@@ -170,23 +213,33 @@ canvas {
 
 .proj .where {
 	float: right;
-	padding: 0px 10px;
-	border-right: 2px solid #1d1d1d;
-	margin-right: 5px;
-	margin-top: 20px;
-	font-size: 0.5em;
+	font-size: 0.4em;
+	margin-top: -2px;
+	margin-right: -22px;
+	border: 2px solid;
+	padding: 8px;
+}
+
+.proj .where::after {
+	content: '';
+	right: 0;
+	height: 30px;
+	width: 1.8px;
+	opacity: 0;
+	position: absolute;
+	background-color: #1d1d1d;
 }
 
 .proj .desc {
 	clear: both;
-	font-size: 0.5em;
+	font-size: 0.4em;
 }
 
 .top {
 	position: fixed;
 	left: 1.5%;
 	z-index: 6;
-	width: 70%;
+	width: 20%;
 
 	transition: all 200ms ease-out;
 	-webkit-transition: all 200ms ease-out;
@@ -240,7 +293,6 @@ canvas {
 
 .nav .left {
 	opacity: 0;
-	color: #DB5461;
 	margin-top: 20px;
 	margin-left: 25%;
 	float: left;
@@ -346,7 +398,7 @@ canvas {
 	content: '';
 	top: 20%;
 	height: 0%;
-	width: 1.8px;
+	width: 2px;
 	margin-left: -15px;
 	opacity: 0.8;
 	background: #DB5461;
