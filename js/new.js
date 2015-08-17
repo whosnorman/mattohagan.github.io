@@ -13,20 +13,24 @@ $(document).ready(function(){
     }, 1500);
 	});
 
+	var fired = false;
 	$(document).scroll(function(){
         var top = $(this).scrollTop();
-        if(top >= 200)
+        if(top >= 200) {
+        	fired = true;
         	hideLanding();
-        else 
+        } else {
+        	fired = true;
         	showLanding();
+        }
     });
 
     function hideLanding(){
-        $('canvas').css({opacity: 0});
-        $('.arrow').css({opacity: 0});
-        $('.nav').addClass('showNav');
-        $('.leftSide').removeClass('leftShow');
-        $('.dontshow').removeClass('show');
+	    $('.dontshow').removeClass('show');
+    		$('canvas').css({opacity: 0});
+	        $('.arrow').css({opacity: 0});
+	        $('.nav').addClass('showNav');
+        	$('.leftSide').removeClass('leftShow');
     }
 
     function showLanding(){
