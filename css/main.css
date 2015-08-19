@@ -108,9 +108,37 @@ canvas {
 }
 
 .before {
-	padding: 10px 15px;
+	padding: 10px 25px;
 	margin-top: 350px;
 	color: #db5461;
+	opacity: 1;
+
+	transition: all 350ms ease-out;
+	-webkit-transition: all 350ms ease-out;
+	-moz-transition: all 350ms ease-out;
+}
+
+.before.hide {
+	opacity: 1;
+	-webkit-transform: translate(0, 95px);
+	-moz-transform: translate(0, 95px);
+}
+
+.inside {
+	background: none !important;
+	padding: 10px 25px;
+	color: #db5461;
+
+	transition: all 350ms ease-out;
+	-webkit-transition: all 350ms ease-out;
+	-moz-transition: all 350ms ease-out;
+	-webkit-transform: translate(0, -95px);
+	-moz-transform: translate(0, -95px);
+}
+
+.inside.final {
+	-webkit-transform: translate(0, 0px);
+	-moz-transform: translate(0, 0px);
 }
 
 .rectangle {
@@ -125,6 +153,87 @@ canvas {
 
 .rectangle a:hover {
 	opacity: 0.7;
+}
+
+.box {
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 2.2em;
+	background: #f2f2f2;
+}
+
+.box div {
+	background: #db5461;
+	position: absolute;
+	transition: all 250ms ease-out;
+	-webkit-transition: all 250ms ease-out;
+	-moz-transition: all 250ms ease-out;
+}
+
+.box .left {
+	left: 0;
+	top: 0;
+	width: 4px;
+	height: 0;
+}
+
+.box .right {
+	right: 0;
+	top: 0;
+	width: 4px;
+	height: 0;
+}
+
+.box .top {
+	left: 0;
+	top: 0;
+	height: 4px;
+	width: 0;
+
+	transition: all 400ms ease-out;
+	-webkit-transition: all 400ms ease-out;
+	-moz-transition: all 400ms ease-out;
+}
+
+.box .bottom {
+	left: 0;
+	top: 96%;
+	height: 4px;
+	width: 0;
+
+	transition: all 400ms ease-out;
+	-webkit-transition: all 400ms ease-out;
+	-moz-transition: all 400ms ease-out;
+}
+
+.final.left {
+	height: 100% !important;
+}
+
+.right.final {
+	height: 100% !important;
+}
+
+.top.final {
+	width: 100% !important;
+}
+
+.bottom.final {
+	width: 100% !important;
+}
+
+.tooltip {
+	position: absolute;
+	right: 0;
+	margin-top: 5em;
+	font-size: 0.45em;
+	color: #db5461;
+	opacity: 0;
+
+	transition: all 250ms ease-out;
+	-webkit-transition: all 250ms ease-out;
+	-moz-transition: all 250ms ease-out;
 }
 
 .landing {
@@ -147,11 +256,11 @@ canvas {
 }
 
 .arrow span {
-	opacity: 0.6;
+	opacity: 1;
 }
 
 .arrow span:hover {
-	opacity: 1;
+	opacity: 0.7;
 	cursor: pointer;
 }
 

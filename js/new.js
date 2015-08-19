@@ -1,11 +1,27 @@
 $(document).ready(function(){
-	$('.leftSide').addClass('leftShow');
-	$('.dontshow').addClass('show');
-	setTimeout(function(){
-		$('canvas').css({opacity: 1});
-		$('.centered').css({opacity: 1});
-		$('.arrow').css({opacity: 1});
-	}, 2000);
+    setPhrase();
+
+    setTimeout(function(){
+        $('.centered').css({opacity: 1});
+        setTimeout(function(){
+            $('.top').addClass('final');                
+            setTimeout(function(){
+                $('.left').addClass('final');
+                setTimeout(function(){
+                    $('.bottom').addClass('final');
+                    $('.right').addClass('final');
+                    setTimeout(function(){
+                        $('.before').addClass('hide');
+                        $('.inside').addClass('final');
+                        setTimeout(function(){
+                            $('.arrow').css({opacity: 1});
+                            $('.tooltip').css({opacity: 1});
+                        }, 600);
+                    }, 550);
+                }, 150);
+            }, 250);
+        }, 1200);
+    }, 500);
 
 	$('.arrow span').on('click', function(){
 		$('html, body').animate({
@@ -26,18 +42,27 @@ $(document).ready(function(){
     });
 
     function hideLanding(){
-	    $('.dontshow').removeClass('show');
-    		$('canvas').css({opacity: 0});
 	        $('.arrow').css({opacity: 0});
 	        $('.nav').addClass('showNav');
-        	$('.leftSide').removeClass('leftShow');
     }
 
     function showLanding(){
-    	$('canvas').css({opacity: 1});
 		$('.arrow').css({opacity: 1});
         $('.nav').removeClass('showNav');
-        $('.leftSide').addClass('leftShow');
-		$('.dontshow').addClass('show');
+    }
+
+    function setPhrase(){
+        var rand = Math.floor((Math.random() * 3 - 1) + 1);
+        var str;
+        switch(rand){
+            case 0: str = 'hey there!';
+                break;
+            case 1: str = 'hello!';
+                break;
+            default: str = 'welcome!';
+                break;
+        }
+
+        $('#phrase').text(str);
     }
 });
