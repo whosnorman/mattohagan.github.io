@@ -24,12 +24,13 @@ $(document).ready(function(){
                         $('.before').addClass('hide');
                         $('.inside').addClass('final');
                         setTimeout(function(){
-                            $('.arrow').css({opacity: 1});
-                            $('.tooltip').css({opacity: 1});
-                            $('.beforeList').css({opacity: 1});
-
-                            startScroll();
-                        }, 600);
+                            $('.beforeList').addClass('show');
+                            setTimeout(function(){
+                                $('.arrow').css({opacity: 1});
+                                $('.tooltip').css({opacity: 1});
+                                startScroll();
+                            }, 450);
+                        }, 125);
                     }, 550);
                 }, 150);
             }, 250);
@@ -37,7 +38,7 @@ $(document).ready(function(){
     }, 500);
 
     // listener for arrow
-	$('.arrow span').on('click', function(){
+	$('.arrow .inner').on('click', function(){
 		$('html, body').animate({
             scrollTop: $("#port").offset().top - 80
         }, 1500);

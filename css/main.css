@@ -109,7 +109,7 @@ canvas {
 
 .before {
 	padding: 10px 25px;
-	margin-top: 350px;
+	margin-top: 300px;
 	color: #db5461;
 	opacity: 1;
 
@@ -161,6 +161,7 @@ canvas {
 	width: 100%;
 	height: 2.2em;
 	background: #f2f2f2;
+	z-index: 4;
 }
 
 .box div {
@@ -240,29 +241,43 @@ canvas {
 	margin-top: 5em;
 	font-size: 0.45em;
 	color: #db5461;
-	opacity: 0;
 	padding: 0;
 	display: flex;
 	justify-content: space-between;
+	position: relative;
+	z-index: 3;
+}
+
+.beforeList div {
+	-webkit-transform: translate(0, -55px);
+	-moz-transform: translate(0, -55px);
 
 	transition: all 250ms ease-out;
 	-webkit-transition: all 250ms ease-out;
 	-moz-transition: all 250ms ease-out;
 }
 
+.beforeList.show div{
+	-webkit-transform: translate(0, 0px);
+	-moz-transform: translate(0, 0px);
+}
+
 .beforeList a {
 	color: #db5461;
 	text-decoration: none;
-	border-bottom: 2px solid;
+	border-bottom: 2px dashed;
 }
 
-.beforeList li {
-	float: left;
-	margin-left: 10px;
+#second {
+	transition-delay: 100ms;
 }
 
-.beforeList li:nth-child(1) {
-	margin-left: 0;
+#third {
+	transition-delay: 200ms;
+}
+
+#fourth {
+	transition-delay: 300ms;
 }
 
 .landing {
@@ -284,14 +299,21 @@ canvas {
 	-moz-transition: all 250ms ease-out;
 }
 
+.landing .arrow span{
+	margin-left: -2px;
+}
+
 .arrow .inner {
 	opacity: 1;
 	display: inline-block;
+	transition: all 200ms ease-out;
+	-webkit-transition: all 200ms ease-out;
+	-moz-transition: all 200ms ease-out;
 }
 
 .arrow .inner:hover {
-	opacity: 0.7;
 	cursor: pointer;
+	margin-bottom: 7px;
 }
 
 .port {
