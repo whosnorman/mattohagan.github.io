@@ -236,6 +236,35 @@ canvas {
 	-moz-transition: all 250ms ease-out;
 }
 
+.beforeList {
+	margin-top: 5em;
+	font-size: 0.45em;
+	color: #db5461;
+	opacity: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+
+	transition: all 250ms ease-out;
+	-webkit-transition: all 250ms ease-out;
+	-moz-transition: all 250ms ease-out;
+}
+
+.beforeList a {
+	color: #db5461;
+	text-decoration: none;
+	border-bottom: 2px solid;
+}
+
+.beforeList li {
+	float: left;
+	margin-left: 10px;
+}
+
+.beforeList li:nth-child(1) {
+	margin-left: 0;
+}
+
 .landing {
 	height: 100%;
 	background-color: #F2F2F2;
@@ -255,11 +284,12 @@ canvas {
 	-moz-transition: all 250ms ease-out;
 }
 
-.arrow span {
+.arrow .inner {
 	opacity: 1;
+	display: inline-block;
 }
 
-.arrow span:hover {
+.arrow .inner:hover {
 	opacity: 0.7;
 	cursor: pointer;
 }
@@ -564,3 +594,129 @@ canvas {
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* transition about page */
+
+.container {
+	max-width: 100%;
+	position: relative;
+	height: 60px;
+}
+
+.container > ul {
+	margin: 0;
+	padding: 0;
+	padding-top: 2px;
+	position: relative;
+	list-style: none;
+
+}
+
+.container li {
+	position: relative;
+	pointer-events: none;
+	opacity: 0;
+	z-index: 999;
+
+}
+
+.container .current {
+	opacity: 1;
+	pointer-events: auto;
+	z-index: 1000;
+}
+
+.itemwrap {
+	position: relative;
+}
+
+.itemwrap li {
+
+	position: relative;
+	visibility: hidden;
+	height: 0;
+
+}
+
+.itemwrap li > span > em {
+	font-weight: 100;
+	font-size: 0.4em;
+	color: #FF8000;
+}
+
+.itemwrap li.current,
+.no-js .itemwrap li {
+	visibility: visible;
+	height: 0;
+	-webkit-transition: none;
+	transition: none;
+}
+
+.itemwrap li > span {
+	display: block;
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.itemwrap li.current > span,
+.no-js .itemwrap li > span {
+	-webkit-transition: none;
+	transition: none;
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+}
+
+.show-next > span {
+	opacity: 1;
+	z-index: 1000;
+	-webkit-animation: moveUpFromDown 1s both;
+	animation: moveUpFromDown 1s both;
+}
+
+.move-out > span {
+	
+	-webkit-animation: moveOut 0.7s both;
+	animation: moveOut 0.7s both;
+}
+
+@-webkit-keyframes moveUpFromDown {
+	from { -webkit-transform: translateY(100%); }
+	to { -webkit-transform: translateY(0); }
+}
+
+@keyframes moveUpFromDown {
+	from { -webkit-transform: translateY(100%); transform: translateY(100%); }
+	to { -webkit-transform: translateY(0); transform: translateY(0); }
+}
+
+@-webkit-keyframes moveOut {
+	from { -webkit-transform: translateY(0); }
+	to { -webkit-transform: translateY(-110%); }
+}
+
+@keyframes moveOut {
+	from { -webkit-transform: translateY(0); transform: translateY(0); }
+	to { -webkit-transform: translateY(-110%); transform: translateY(-110%); }
+}
