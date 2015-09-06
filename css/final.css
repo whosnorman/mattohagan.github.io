@@ -31,11 +31,30 @@ body {
 	font-size: 16px;
 	font-family: 'Open Sans';
 	font-weight: 500;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+.proj {
+	background: #605D67;
+}
+
+
+
+#landing {
+	max-width: 100%;
+}
+
+#effects {
+	position: absolute;
+	top: 0;
+	z-index: -2;
 }
 
 
 .header {
-	margin-top: 1.5em;
+	margin-top: 1em;
 }
 
 .big {
@@ -44,7 +63,7 @@ body {
 }
 
 .sub-title {
-	margin-top: 0em;
+	margin-top: -0.4em;
 	font-size: 1em;
 	opacity: 0.40;
 }
@@ -103,16 +122,29 @@ body {
 }
 
 .portfolio {
-	margin-top: 9%;
+	margin-top: 3%;
+}
+
+.proj::before {
+	content: '';
+	height: 100%;
+	width: 100%;
+	left: -0.45em;
+	top: -0.45em;
+	position: absolute;
+	z-index: -1;
+	background: #605D67;
 }
 
 .proj {
 	position: relative;
 	text-align: center;
 	border: 0.3em solid rgba(255, 255, 255, 0.35);
-	margin-bottom: 5%;
+	margin-top: 5%;
 	height: 5.5em;
 	padding-top: 0.5em;
+	overflow: hidden;
+	z-index: 2;
 
 	transition: all 200ms ease-out;
 	-webkit-transition: all 200ms ease-out;
@@ -125,21 +157,64 @@ body {
 	cursor: pointer;
 }
 
+.proj .overlay {
+	background: rgba(96, 93, 103, 0.7);
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.proj:hover img {
+	opacity: 1;
+}
+
 .proj .title {
 	font-size: 1.7em;
+	z-index: 2;
+	position: relative;
+
 }
 
 .proj .desc {
 	font-size: 0.5em;
 	font-weight: 400;
 	margin-top: 0.4em;
+	z-index: 2;
+	position: relative;
 }
 
 .proj .where {
 	display: none;
 }
 
+.proj img {
+	opacity: 0;
+	max-width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
 
+	transition: all 200ms ease-out;
+	-webkit-transition: all 200ms ease-out;
+	-moz-transition: all 200ms ease-out;
+	-o-transition: all 200ms ease-out;
+}
+
+
+.footer {
+	background: rgba(33, 33, 33, 0.35);
+	height: 8em;
+	margin-top: 2em;
+}
+
+
+/* BACKGROUND IMAGE IDs */
+#hackfsu {
+	top: -25px;
+}
 
 
 @media all and (min-width: 1300px){
