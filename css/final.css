@@ -136,6 +136,11 @@ body {
 	background: #605D67;
 }
 
+.proj a {
+	text-decoration: none;
+	color: #fff;
+}
+
 .proj {
 	position: relative;
 	text-align: center;
