@@ -40,6 +40,16 @@ var pagePosition = 0;
 
 $(document).ready(function(){
 	init();
+
+	$('.proj').on('click', function(e){
+		var to = $(this).attr('data-link');
+		console.log(this);
+		console.log($(this).attr('data-link'));
+		getReadyToChange(function(to){
+			//window.redirect(to);
+			console.log(to);
+		});
+	});
 });
 
 function init(){
@@ -119,7 +129,8 @@ function initPop(x, y){
 			opacity: opacity,
 			dirY: dirY,
 			dirX: dirX,
-			done: false
+			done: false,
+			moveUp: false
 		});
 	}
 }
@@ -180,7 +191,8 @@ function initShape(numShape, drawFunc, arr, range){
 			hover: false,
 			opacity: opacity,
 			popped: false,
-			smiley: false
+			smiley: false,
+			moveUp: false
 		});
 	}
 }
@@ -197,17 +209,22 @@ function updateShape(delta, arr, drawFunc){
 
 	// update each circle
 	for(var i = 0; i < arr.length; i++){
-		// set circle speeds
-		if (i % 5 == 0){
-			arr[i].y = arr[i].y - (1.5 / 30 * delta * multiplier);
-		} else if (i % 2 == 0){
-			arr[i].y = arr[i].y - (0.9 / 30 * delta * multiplier);
+
+		if(arr[i].moveUp){
+			arr[i].y = arr[i].y - Math.random() * delta * multiplier;
 		} else {
-			arr[i].y = arr[i].y - (0.3 / 30 * delta * multiplier);
+			// set circle speeds
+			if (i % 5 == 0){
+				arr[i].y = arr[i].y - (1.5 / 30 * delta * multiplier);
+			} else if (i % 2 == 0){
+				arr[i].y = arr[i].y - (0.9 / 30 * delta * multiplier);
+			} else {
+				arr[i].y = arr[i].y - (0.3 / 30 * delta * multiplier);
+			}
 		}
 
 		// if bubble is off the screen, randomly respawn more
-		if(arr[i].y < -65 && window.scrollY <= 500 && Math.random() < 0.01){
+		if(arr[i].y < -65 && window.scrollY <= 500 && Math.random() < 0.01 && !arr[i].moveUp){
 			arr[i].y = window.innerHeight + 50;
 			arr[i].dr = 0;
 		}
@@ -220,7 +237,6 @@ function updateShape(delta, arr, drawFunc){
 			if (arr[i].opacity > 0) {
 				arr[i].opacity -= 0.1;
 				if (arr[i].opacity < 0) {
-					initPop(arr[i].x, arr[i].y);
 
 					arr[i].opacity = 0;
 					arr[i].popped = false;
@@ -245,6 +261,7 @@ function updateShape(delta, arr, drawFunc){
 					arr[i].hover = false;
 				} else {
 					arr[i].dr -= 1;
+					initPop(arr[i].x, arr[i].y);
 				}
 			}
 		}
@@ -311,6 +328,22 @@ function drawSquare(x, y, size, color, opacity) {
     bctx.strokeStyle = color;
     bctx.globalAlpha = opacity;
     bctx.stroke();
+}
+
+
+
+function getReadyToChange(callback){
+	moveShapeUp(bubbleArr);
+	moveShapeUp(squareArr);
+	moveShapeUp(xArr);
+	$('#landing').fadeOut(1000, callback());
+
+}
+
+function moveShapeUp(arr){
+	for(var i = 0; i < arr.length; i++){
+		arr[i].moveUp = true;
+	}
 }
 
 
