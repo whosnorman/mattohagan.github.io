@@ -40,6 +40,13 @@ body {
 	background: #605D67;
 }
 
+.proj .overlay {
+	background: #605D67;
+}
+
+.head-overlay:after {
+  background: linear-gradient(transparent, #605D67 90%);
+}
 
 
 #landing {
@@ -125,16 +132,6 @@ body {
 	margin-top: 3%;
 }
 
-.proj::before {
-	content: '';
-	height: 100%;
-	width: 100%;
-	left: -0.45em;
-	top: -0.45em;
-	position: absolute;
-	z-index: -1;
-	background: #605D67;
-}
 
 .proj a {
 	text-decoration: none;
@@ -163,7 +160,7 @@ body {
 }
 
 .proj .overlay {
-	background: rgba(96, 93, 103, 0.7);
+	opacity: 0.7;
 	z-index: 0;
 	position: absolute;
 	top: 0;
@@ -246,6 +243,107 @@ body {
 	width: 120%;
 	top: -3em;
 }
+
+
+/* END BACKGROUND IMAGE IDs */
+
+.project-head {
+	height: 85%;
+	position: relative;
+}
+
+.project-head .title {
+	font-size: 2em;
+	font-weight: 700;
+	margin-bottom: -0.2em;
+}
+
+.project-head .type {
+	font-weight: 100;
+}
+
+.project-head .when {
+	text-align: end;
+}
+
+
+.project-head .head-bottom {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.project-head .small-line {
+	float: none;
+	opacity: 1;
+	margin-left: 0.15em;
+	width: 7%;
+}
+
+.head-img {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 70%;
+	background: url() no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+.head-overlay {
+	width: 100%;
+	height: 70%;
+	position: absolute;
+	top: 0;
+}
+
+.head-overlay:after {
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.project-content {
+	width: 100%;
+	font-weight: 100;
+	font-size: 0.8em;
+}
+
+
+.header-layout {
+	height: 80%;
+}
+
+.head-content {
+	height: 100%;
+}
+
+.header-layout .big {
+	opacity: 1;
+	font-size: 1em;
+	padding: 5px 10px;
+	float: left;
+	display: none;
+}
+
+.header-layout .alone-nav li {
+	float: right;
+	opacity: 1;
+}
+
+.header-layout .alone-nav li:hover {
+	opacity: 0.7;
+}
+
+.header-layout .alone-nav li:nth-child(1) {
+	margin-right: 0;
+}
+
 
 
 @media all and (min-width: 1300px){

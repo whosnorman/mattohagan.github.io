@@ -42,12 +42,10 @@ $(document).ready(function(){
 	init();
 
 	$('.proj').on('click', function(e){
-		var to = $(this).attr('data-link');
-		console.log(this);
-		console.log($(this).attr('data-link'));
-		getReadyToChange(function(to){
-			//window.redirect(to);
-			console.log(to);
+		var link = $(this).attr('data-link');
+		getReadyToChange(function(){
+			window.location.href = link;
+			console.log(link);
 		});
 	});
 });
@@ -101,17 +99,18 @@ var calculateDistance = function(x1, y1, x2, y2) {
 	return Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
 }
 
+// initialize popping effect
 function initPop(x, y){
 	for(var i = 0; i < 2; i++){
 		
 		var size = randomSize(popRange);
 		var opacity = 0.35;
 
-
 		var start = 1.6 * Math.PI;
 		var end = (Math.random() * (0.6 - 0.3) + 0.3) * Math.PI;
 		// 50% chance of either direction happening
     	var dirY = (i % 2) ? 1 : -1;
+    	dirY = -1;
     	var dirX = (i % 2) ? 1 : -1;
 
     	x += size * dirX;
@@ -135,6 +134,7 @@ function initPop(x, y){
 	}
 }
 
+// on interval update the pop effects location
 function updatePops(delta){
 	for(var i = 0; i < popArr.length; i++){
 		// update pop settings here
@@ -256,12 +256,12 @@ function updateShape(delta, arr, drawFunc){
 
 			if(arr[i].hover){
 				if(arr[i].size + arr[i].dr < 1){
+					initPop(arr[i].x, arr[i].y);
 					console.log('pop!');
 					arr[i].popped = true;
 					arr[i].hover = false;
 				} else {
 					arr[i].dr -= 1;
-					initPop(arr[i].x, arr[i].y);
 				}
 			}
 		}
@@ -336,7 +336,7 @@ function getReadyToChange(callback){
 	moveShapeUp(bubbleArr);
 	moveShapeUp(squareArr);
 	moveShapeUp(xArr);
-	$('#landing').fadeOut(1000, callback());
+	$('#landing').fadeOut('slow', callback);
 
 }
 
