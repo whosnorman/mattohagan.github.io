@@ -34,6 +34,7 @@ body {
 	padding: 0;
 	margin: 0;
 	overflow-x: hidden;
+	​-webkit-font-smoothing:antialiased;
 }
 
 .proj {
@@ -323,12 +324,16 @@ body {
 	height: 100%;
 }
 
-.header-layout .big {
+.header-layout .nav {
 	opacity: 1;
 	font-size: 1em;
 	padding: 5px 10px;
 	float: left;
-	display: none;
+}
+
+.header-layout .nav:hover {
+	opacity: 0.6;
+	cursor: pointer;
 }
 
 .header-layout .alone-nav li {
