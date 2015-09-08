@@ -26,7 +26,7 @@
 }
 
 body {
-	background: #605D67;
+	background: #4E738C;
 	color: #fff;
 	font-size: 16px;
 	font-family: 'Open Sans';
@@ -37,15 +37,15 @@ body {
 }
 
 .proj {
-	background: #605D67;
+	background: #4E738C;
 }
 
 .proj .overlay {
-	background: #605D67;
+	background: #4E738C;
 }
 
 .head-overlay:after {
-  background: linear-gradient(transparent, #605D67 90%);
+  background: linear-gradient(transparent, #4E738C 90%);
 }
 
 
