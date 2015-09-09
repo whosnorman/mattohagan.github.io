@@ -382,17 +382,29 @@ body {
 	body {
 		font-size: 18px;
 	}
+
+	.header-layout #txt {
+		display: none;
+	}
 }
 
 @media all and (max-width: 604px) and (min-width: 405px){
 	body {
 		font-size: 16px;
 	}
+
+	.header-layout #txt {
+		display: none;
+	}
 }
 
 @media all and (max-width: 404px){
 	body {
 		font-size: 16px;
+	}
+	
+	.header-layout #txt {
+		display: none;
 	}
 }
 
