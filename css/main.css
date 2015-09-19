@@ -1,0 +1,83 @@
+
+@font-face {
+  font-family: 'Bitter';
+  src: url('../fonts/Bitter-Bold.otf');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  src: url('../fonts/OpenSans-Light.ttf');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  src: url('../fonts/OpenSans-Regular.ttf');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 500;
+  src: url('../fonts/OpenSans-Semibold.ttf');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  src: url('../fonts/OpenSans-Bold.ttf');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 800;
+  src: url('../fonts/OpenSans-ExtraBold.ttf');
+}
+
+body {
+	background: #F78154;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.center {
+	width: 400px;
+    height: 100px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.title {
+	font-size: 6em;
+}
+
+.subtitle {
+	font-weight: 400 !important;
+}
+
+#mce-EMAIL {
+	border: 2px solid #fff;
+	font-size: 1em;
+	background-color: transparent;
+	color: #fff;
+	padding: 20px 10px;
+	height: 44px;
+}
+
+#mc-embedded-subscribe {
+	border: 2px solid #fff;
+	font-size: 1em;
+	font-weight: 400;
+	background-color: transparent;
+	color: #fff;
+	height: 44px;
+
+	transition: all 200ms ease-out;
+}
+
+#mc-embedded-subscribe:hover {
+	color: #F78154;
+	background: #fff;
+
+}
