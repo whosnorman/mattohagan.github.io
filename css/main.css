@@ -29,12 +29,32 @@
   src: url('../fonts/OpenSans-ExtraBold.ttf');
 }
 
-body {
+html {
 	background: #F78154;
-	color: #fff;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
+
+  background: url('../hackfsu.JPG') no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: #fff;
 	font-size: 16px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #F78154;
+  opacity: 0.8;
 }
 
 .center {
