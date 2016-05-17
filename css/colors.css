@@ -1,0 +1,56 @@
+.btn-primary-outline:hover {
+	border-color: #23b482;
+	background-color: #23b482;
+}
+
+.btn-primary-outline {
+  border-color: #23b482;
+  color: #23b482;
+}
+
+.m-b-39{
+	margin-left: 37.3%;
+}
+
+/*.bg-inverse {
+	background-color: #1da47a;
+}*/
+
+.btn-primary{
+	background-color: #0f595e;
+	border-color: #0f595e;
+}
+
+.btn-primary:hover{
+	background-color: #0a393a;
+	border-color: #0a393a;
+}
+.pricing-best {
+    border: 2px solid #23b482;
+}
+.pricing-best .card-header {
+    color: #fff;
+    background-color: #23b482;
+}
+
+.icon-color{
+	color: #23b482;
+}
+
+.icon {width: 50%;}
+
+.pricing-box .card-header:first-child{
+  color: #0f595e;
+}
+
+.jumbotron {
+  padding-top: 7rem;
+  margin-bottom: 0;
+  background: #23b482 url(../img/home-lp.jpg) no-repeat center bottom;
+  background-size: cover;
+  border-radius: 0;
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 6.25rem;
+  }
+}
